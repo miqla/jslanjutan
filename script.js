@@ -27,41 +27,101 @@
 
 // 2. Function Declaration
 // biar function yg ga dibutuhin ga dijalankan, kita buat object yg isinya (2 buah) method
-const methodMahasiswa = {
-  makan : function (porsi) {
+// const methodMahasiswa = {
+//   makan : function (porsi) {
+//     this.energi += porsi;
+//     console.log(`Halo ${this.nama}, selamat makan!`);
+//   },
+
+//   main : function (jam) {
+//     this.energi -= jam;
+//     console.log(`Halo ${this.nama}, selamat bermain!`);
+//     },
+
+//   tidur : function (jam) {
+//     this.energi += jam * 2;
+//     console.log(`Halo ${this.nama}, selamat tidur!`);
+//     }
+//   };
+
+//     // templatenya
+// function Mahasiswa(nama, energi) {
+//   // let mahasiswa = {};
+//   // Object.create(methodMahasiswa): ikut membawa properti dan method dari object lain, parent nya
+//   let mahasiswa = Object.create(methodMahasiswa);
+//   mahasiswa.nama = nama;
+//   mahasiswa.energi = energi;
+
+//   // kalo function declaration harus ada return, else null
+//   return mahasiswa;
+// }
+
+//     // harus instansiasi dulu,biar ada objectnya
+// let mila = Mahasiswa('Mila', 10);
+// let erik = Mahasiswa('Erik', 15);
+
+
+// ----/------/------/--------/------/-/------/-/-/-/-//-/--------
+
+// object prototypel inheritance, gada kelas
+// function Mahasiswa(nama, energi) {
+//   // let this = Object.create(Mahasiswa.prototype);     dibalik layar, gaperlu ditulis
+//   this.nama = nama;
+//   this.energi = energi;
+
+//   // return this;     dibalik layar
+// }
+
+// Mahasiswa.prototype.makan = function (porsi) {
+//   this.energi += porsi;
+//   return `Halo ${this.nama}, selamat makan!`;
+// }
+
+// Mahasiswa.prototype.main = function (jam) {
+//   this.energi -= jam;
+//   return `Halo ${this.nama}, selamat bermain!`;
+// }
+
+// Mahasiswa.prototype.tidur = function (jam) {
+//   this.energi += jam;
+//   return `Halo ${this.nama}, selamat tidur!`;
+// }
+
+// let mila = new Mahasiswa('Mila', 10);
+
+
+// ----/------/------/--------/------/-/------/-/-/-/-//-/--------
+
+// versi Class
+class Mahasiswa {
+  constructor(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+  }
+
+  makan(porsi) {
     this.energi += porsi;
-    console.log(`Halo ${this.nama}, selamat makan!`);
-  },
+    return `Halo ${this.nama}, selamat makan!`;
+  }
 
-  main : function (jam) {
+  main(jam) {
     this.energi -= jam;
-    console.log(`Halo ${this.nama}, selamat bermain!`);
-    },
+    return `Halo ${this.nama}, selamat bermain!`;
+  }
 
-  tidur : function (jam) {
-    this.energi += jam * 2;
-    console.log(`Halo ${this.nama}, selamat tidur!`);
-    }
-  };
-
-    // templatenya
-function Mahasiswa(nama, energi) {
-  // let mahasiswa = {};
-  // Object.create(methodMahasiswa): ikut membawa properti dan method dari object lain, parent nya
-  let mahasiswa = Object.create(methodMahasiswa);
-  mahasiswa.nama = nama;
-  mahasiswa.energi = energi;
-  mahasiswa.makan = methodMahasiswa.makan;
-  mahasiswa.main = methodMahasiswa.main;
-  mahasiswa.tidur = methodMahasiswa.tidur;
-
-  // kalo function declaration harus ada return, else null
-  return mahasiswa;
+  tidur(jam) {
+    this.energi += jam;
+    return `Halo ${this.nama}, selamat tidur!`;
+  }                                                                   
 }
 
-    // harus instansiasi dulu,biar ada objectnya
-let mila = Mahasiswa('Mila', 10);
-let erik = Mahasiswa('Erik', 15);
+let mila = new Mahasiswa('Mila', 10);
+let erik = new Mahasiswa('Erik', 20);
+
+
+let angka = [2,1,3];
+console.log(angka.sort());
+
 
 // ---------------------/----------------/------------------/---------------
 
