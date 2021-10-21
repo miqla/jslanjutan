@@ -64,19 +64,70 @@
 
 
 
-function satu () {
-  var nama = 'Mila';
-  console.log(nama);
-}
+// function satu () { 
+//   var nama = 'Mila';
+//   console.log(nama);
+// }
 
-function dua () {
-  // console.log(arguments);    hasilnya dalam bentuk array
-  // console.log(arguments[0]);   hasilnya adalah isi array yg indexnya 0
-  console.log(nama);
-}
+// function dua () {
+//   // console.log(arguments);    hasilnya dalam bentuk array
+//   // console.log(arguments[0]);   hasilnya adalah isi array yg indexnya 0
+//   console.log(nama);
+// }
 
-console.log(nama);
-var nama = 'Erik';
-satu();
-dua('Doddy');
-console.log(nama);
+// console.log(nama);
+// var nama = 'Erik';
+// satu();
+// dua('Doddy');
+// console.log(nama);
+
+
+// ______________//_________________________/_________________/________________________/
+
+// function init () {
+//   let nama = 'Mila';
+//   function tampilNama() {
+//     console.log(nama);
+//   }
+//   tampilNama();
+// }
+// init();
+
+// function init () {
+//     // let nama = 'Mila';
+//     return function (nama) {
+//       console.log(nama);
+//     }
+//   }
+//   let panggilNama = init();
+//   panggilNama('Mila');
+//   panggilNama('Erik');
+
+
+  // function factory
+// function ucapkanSalam(waktu) {
+//   return function (nama) {
+//     console.log(`Halo ${nama}, Selamat ${waktu}, semoga harimu menyenagkan!`);
+//   }
+// }
+
+// let selamatPagi = ucapkanSalam('Pagi');
+// let selamatSiang = ucapkanSalam('Siang');
+// let selamatMalam = ucapkanSalam('Malam');
+
+// console.dir(selamatMalam('Mila'));
+
+
+// immediately invoke function
+let add = (function () {
+  let counter = 0;
+  return function () {
+    return ++counter;
+  }
+})();
+
+counter = 100;    //gangaruh
+
+console.log(add());
+console.log(add());
+console.log(add());
