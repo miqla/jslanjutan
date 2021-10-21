@@ -7,6 +7,7 @@
 // js akan mencari dulu ada variabel / function ga, kalo ada..
 // nama var = undefined       isinya undefined
 // nama function = fn()       isinya adalah code function itu sendiri
+// let sama const ga berlaku hoisting
 // konsep/proses ini dinamakan HOISTING, lalu dari awal sudah ada 2 object, yaitu:
 // window = global object
 // this = window
@@ -118,7 +119,7 @@
 // console.dir(selamatMalam('Mila'));
 
 
-// immediately invoke function
+// immediately invoked function
 let add = (function () {
   let counter = 0;
   return function () {
