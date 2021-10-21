@@ -3,10 +3,10 @@ var let const
 sebisa mungkin, gunakan let hanya untuk for
 
 
-//cara ngerubah const
+//cara ngerubah const, jgn ganti full objectnya biar ga error
 
 const i = [1,2,3]
-i=[1,2,3,4]	bakal error
+//i=[1,2,3,4]	bakal error
 i.push(4)	berhasil nambahin 4 di arraynya
 
 console.log(i);
