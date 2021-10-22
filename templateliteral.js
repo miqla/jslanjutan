@@ -1,17 +1,17 @@
 // Template Literals / Template String / String Literals
-const nama = 'Mila';
-const umur = 33;
-console.log(`Halo, nama saya ${nama}, saya ${umur} tahun.`)
+// const nama = 'Mila';
+// const umur = 33;
+// console.log(`Halo, nama saya ${nama}, saya ${umur} tahun.`)
 
 
-// Embedded Expressions
-console.log(`${1+1}`);
-// console.log(`${alert('Halo!')}`);
+// // Embedded Expressions
+// console.log(`${1+1}`);
+// // console.log(`${alert('Halo!')}`);
 
 
-// ternary operator
-const x = 10;
-console.log(`${(x % 2 == 0) ? 'genap' : 'ganjil'}`);
+// // ternary operator
+// const x = 10;
+// console.log(`${(x % 2 == 0) ? 'genap' : 'ganjil'}`);
 
 // ---------------------/--------------/-----------------/---------------/-----------------/-----
 
@@ -85,31 +85,71 @@ console.log(`${(x % 2 == 0) ? 'genap' : 'ganjil'}`);
 // 4. Nested
 // HTML Fragments bersarang
 
-const mhs = {
-  nama: 'Mila Rabbani',
-  semester: 5,
-  mataKuliah: [
-    'Rekayasa Web',
-    'Analisis dan perancangan Sistem Informasi',
-    'Pemrograman Sistem Interaktif',
-    'Perancangan Sistem Berorientasi Object'
-  ]
-};
+// const mhs = {
+//   nama: 'Mila Rabbani',
+//   semester: 5,
+//   mataKuliah: [
+//     'Rekayasa Web',
+//     'Analisis dan perancangan Sistem Informasi',
+//     'Pemrograman Sistem Interaktif',
+//     'Perancangan Sistem Berorientasi Object'
+//   ]
+// };
 
-function cetakMataKuliah(matakuliah) {
-  return `
-    <ol>
-      ${matakuliah.map(mk => `<li>${mk}</li>`).join('')}
-    </ol>
-  `;
+// function cetakMataKuliah(matakuliah) {
+//   return `
+//     <ol>
+//       ${matakuliah.map(mk => `<li>${mk}</li>`).join('')}
+//     </ol>
+//   `;
+// }
+
+// const el = `<div class="mhs">
+//   <h2>${mhs.nama}</h2>
+//   <span class="semester">Semester : ${mhs.semester}</span>
+//   <h4>Mata Kuliah :</h4>
+//   ${cetakMataKuliah(mhs.mataKuliah)}
+// </div>`;
+
+// document.body.innerHTML = el;   //munculin ke websitenya
+
+
+
+// ---------------/-----------------/------------------/----------------------/--------------
+
+
+
+// Tagged Templates
+// Bisa menerima parameter, lalu ada yg namanya RestParameter ...
+// const nama = 'Mila Rabbani';
+// const umur = 33;
+
+// function coba(strings, ...values) {
+
+//   // return values;
+
+//   // let result = '';
+//   // strings.forEach((str, i) => {
+//   //   result += `${str}${values[i] || ''}`;     //kasih '' biar undefined nya ga ditampilkan
+//   // });
+//   // return result;
+
+//   return strings.reduce((result, str, i) => `${result}${str}${values[i] || ''}`, '');
+// }
+
+// const str = coba`Halo, nama saya ${nama}, saya ${umur} tahun.`;
+// console.log(str);
+
+
+// Highlight
+const nama = 'Mila Rabbani';
+const umur = 33;
+const email = 'mila@mila.id';
+
+function highlight(strings, ...values) {
+  return strings.reduce((result, str, i) => `${result}${str}<span class="hl">${values[i] || ''}</span>`, '');
 }
 
-const el = `<div class="mhs">
-  <h2>${mhs.nama}</h2>
-  <span class="semester">Semester : ${mhs.semester}</span>
-  <h4>Mata Kuliah :</h4>
-  ${cetakMataKuliah(mhs.mataKuliah)}
-</div>`;
-
-
-document.body.innerHTML = el;   //munculin ke websitenya
+// String ini dilewatkan dulu kedalam function
+const str = highlight`Halo, nama saya ${nama}, saya ${umur} tahun, dan email saya adalah : ${email}.`;
+document.body.innerHTML = str;
