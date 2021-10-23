@@ -100,12 +100,12 @@ const perkenalan = ['Halo', 'nama', 'saya', 'Mila Rabbani'];
 
 
 // Mengambil field pada object, setelah dikirim sebagai parameter untuk function
-const mhs = {
-  id: 123,
-  nama : "Mila Rabbani",
-  umur : 23,
-  email: 'mila@mila.id'
-}
+// const mhs = {
+//   id: 123,
+//   nama : "Mila Rabbani",
+//   umur : 23,
+//   email: 'mila@mila.id'
+// }
 
 // function getIdMhs(mhs) {
 //   return mhs.id;
@@ -113,8 +113,84 @@ const mhs = {
 
 // console.log(getIdMhs(mhs));   //isi parameternya adalah const mhs
 
-function getIdMhs({ id }) {   //dibongkar dulu object yg diterima, diambil id nya. klo mau ambil nama & id juga boleh
-  return id;
-}
+// function getIdMhs({ id }) {   //dibongkar dulu object yg diterima, diambil id nya. klo mau ambil nama & id juga boleh
+//   return id;
+// }
 
-console.log(getIdMhs(mhs)); 
+// console.log(getIdMhs(mhs));     //mhs = object
+
+
+// ________________/___________________/-_________________________/_________________/_______________
+
+// Contoh penerapan Destructing
+
+// 1. Destructuring Function Return Value
+// function penjumlahanPerkalian(a,b) {
+//   return [a+b, a*b];
+// }
+// // const jumlah = penjumlahanPerkalian(2,3);   //hasilnya array
+// // const tambah = penjumlahanPerkalian(2,3)[0];   //ambil hasil dari array yg indexnya 0
+// // const kali = penjumlahanPerkalian(2,3)[1];  
+// // console.log(hasil);
+// // console.log(tambah);
+// // console.log(kali);
+
+// const [tambah, kali] = penjumlahanPerkalian (2,3);
+// console.log(tambah);
+// console.log(kali);
+
+
+// contoh lain, return array
+// function kalkulasi(a,b) {
+//   return [a+b, a-b, a*b, a/b];     //array
+// }
+// // urutan nama variabelnya berpengaruh
+// const [tambah, kurang, kali = 'meiyou', bagi] = kalkulasi(2,3);   //kalo mau pake nilai default
+// console.log(bagi);
+
+
+// contoh lain, return object
+// function kalkulasi(a,b) {
+//   return {
+//     tambah: a + b,
+//     kurang: a - b,
+//     kali: a * b,
+//     bagi: a / b
+//   }
+// }
+// // urutan nama variabel gangaruh
+// const {bagi, tambah, kali, kurang} = kalkulasi(2,3);
+// console.log(kali);
+
+// -------------/-----------------/--------------------/---------------/---------------
+
+// 2. Destructuring Function Arguments
+const mhs1 = {
+  nama: 'Mila Rabbani',
+  umur: 25,
+  email: 'mila@mila.id',
+  nilai: {
+    tugas: 80,
+    uts: 85,
+    uas: 75
+  }
+}
+// function cetakMhs(nama, umur){
+//   return `Halo, nama saya ${nama}, saya berumur ${umur} tahun.`;
+// }
+// console.log(cetakMhs(mhs1.nama, mhs1.umur));   //dipecah disini
+
+// function cetakMhs(mhs){
+//   return `Halo, nama saya ${mhs.nama}, saya berumur ${mhs.umur} tahun.`;    //dipecah disini
+// }
+// console.log(cetakMhs(mhs1));
+
+// function cetakMhs({ nama, umur }){      //destructuring here
+//   return `Halo, nama saya ${nama}, saya berumur ${umur} tahun.`;  
+// }
+// console.log(cetakMhs(mhs1));
+
+function cetakMhs({ nama, umur, nilai: {tugas, uts, uas} }){      //destructuring bersarang
+  return `Halo, nama saya ${nama}, saya berumur ${umur} tahun, dan nilai uas saya adalah ${uas}.`;  
+}
+console.log(cetakMhs(mhs1));
