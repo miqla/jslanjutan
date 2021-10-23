@@ -42,7 +42,64 @@
 
 
 // contoh lain, dari HTML nya
-const nama = document.querySelector('.nama');
-const huruf = [...nama.textContent].map(h => `<span>${h}</span>`).join('');   //join, biar array jadi string
-// console.log(huruf);
-nama.innerHTML = huruf;   //gabisa pake textContent
+// const nama = document.querySelector('.nama');
+// const huruf = [...nama.textContent].map(h => `<span>${h}</span>`).join('');   //join, biar array jadi string
+// // console.log(huruf);
+// nama.innerHTML = huruf;   //gabisa pake textContent
+
+// _______________//_______________________//__________________//__________________
+
+// Rest Parameter
+// bentuknya array
+// function myFunc(a,b, ...myArgs) {
+//   return `a = ${a}, b = ${b}, myArgs = ${myArgs}`;
+//   // return arguments;    //hasilnya bentuknya object
+//   // return Array.from(arguments);    //biar hasil arguments nya = array
+//   // return [...arguments];    //sda
+// }
+// console.log(myFunc(1,2,3,4,5));
+
+
+// menjumlahkan seluruh parameter yg dikirimkan
+// function jumlah(...angka) {
+
+//   // pakai for of
+//   // let total = 0;
+//   // for (const a of angka) {
+//   //   total += a;
+//   // }
+//   // return total;
+
+//   // reduce
+//   return angka.reduce((a,b) => a+b);
+// }
+// console.log(jumlah(1,2,3,4,5));
+
+
+// Array destructuring
+// const kelompok1 = ['Mila', 'Rabbani', 'Agus', 'Lorem', 'Ipsum'];
+// const [ketua, wkil, ...anggota] = kelompok1;
+// console.log(anggota);
+
+
+// object destructuring
+// const team = {
+//   pm: 'Mila',
+//   frontEnd1: 'Rabbani',
+//   frontEnd2: 'Lorem',
+//   backEnd: 'Ipsum',
+//   ux: 'Agus',
+//   devOps: 'Mulia'
+// }
+// const { pm, ...myTeam} = team;
+// console.log(myTeam);
+
+
+// Filter
+// filtering pada parameter yg dikirimkan
+function filterBy(type, ...values) {
+  return values.filter(v => typeof v === type);
+}
+console.log(filterBy('number', 1, 2, 'Mila', false, 10, true, 'Rabbani'));
+console.log(filterBy('string', 1, 2, 'Mila', false, 10, true, 'Rabbani'));
+console.log(filterBy('boolean', 1, 2, 'Mila', false, 10, true, 'Rabbani'));
