@@ -1,0 +1,23 @@
+[
+  {
+    "nama": "Mila Rabbani",
+    "nrp": "123456789",
+    "email" : "mila@mila.id",
+    "jurusan" : "Teknik Informatika",
+    "idDosenWali": 1
+  },
+  {
+    "nama": "Lorem Ipsum",
+    "nrp": "456789123",
+    "email" : "lorema@mila.id",
+    "jurusan" : "Teknik Mesin",
+    "idDosenWali": 2
+  },
+  {
+    "nama": "Agus Lorem",
+    "nrp": "789123456",
+    "email" : "agus@mila.id",
+    "jurusan" : "Teknik Industri",
+    "idDosenWali": 3
+  }
+]
