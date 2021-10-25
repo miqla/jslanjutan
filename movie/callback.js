@@ -4,7 +4,7 @@ $('.search-button').on('click', function(){
     // apapun value yg ada di input-nya / apapun yg diketikkan
     url: 'http://www.omdbapi.com/?apikey=38c2cf77&s=' + $('.input-keyword').val(),
     success: results => {
-      const movies = results.Search;
+      const movies = results.Search;      //Search nya berasal dari file json di API nya, ngeluarin objectnya dari Search
       console.log(movies);
       let cards = '';
       movies.forEach(m => {
