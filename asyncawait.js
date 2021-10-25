@@ -50,6 +50,7 @@ function cobaPromise() {
 //   .catch(()=>console.log(coba));
 
 async function cobaAsync() {
+  // try untuk .then, catch untuk .catch
   try {
     const coba = await cobaPromise();
     console.log(coba);
